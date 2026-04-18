@@ -1,4 +1,4 @@
-## 🌍 Localization Guide
+## Localization Guide
 
 *Note: This repository is primarily in Russian, but you can easily translate the script for your own use.*
 
@@ -17,7 +17,7 @@ To localize the script interface to English (or any other language), you simply 
 
 # DNS-Changer
 
-Простой и удобный bash-скрипт для быстрого переключения DNS-серверов в Linux. Скрипт предоставляет интерактивное меню прямо в терминале и позволяет переключаться между предустановленными адресами, стандартным DHCP или вашим собственным DNS, а также [Xbox-dns.ru](https://xbox-dns.ru/)
+Простой и удобный bash-скрипт для быстрого переключения DNS-серверов в Linux. Скрипт предоставляет интерактивное меню прямо в терминале и позволяет переключаться между предустановленными адресами, стандартным DHCP или вашим собственным DNS, а также [Xbox-dns.ru](https://xbox-dns.ru/)(Для пользователей из России позволяет пользоваться некоторыми иностранным сервисам)
 
 ## Совместимость
 
@@ -96,3 +96,10 @@ dns
   `alias dns='~/scripts/dns.sh'`
 - Просто замените слово dns перед знаком равно на вашу команду. Должно получиться, например, так:
   `alias switchdns='~/scripts/dns.sh'`
+
+## Удаление
+
+Для простого удаления скрипта напишите:
+```bash
+bash -c "rm ~/scripts/dns.sh; sed -i '/alias dns/d' ~/.bashrc; [ -f ~/.zshrc ] && sed -i '/alias dns/d' ~/.zshrc; [ -f ~/.config/fish/config.fish ] && sed -i '/alias dns/d' ~/.config/fish/config.fish; echo 'Удалено'"
+```
